@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>APLICACION</title>
+</head>
+<style>
+  /*general*/
+  ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0px;
+  }
+  
+  .container-fluid {
+    background: linear-gradient(to right, #2980b9, #6dd5fa);
+  }
+
+  .contenido {
+    margin: 10px;
+  }
+
+  /*navbar*/
+  nav {
+    background: linear-gradient(to right, #2980b9, #6dd5fa);
+  }
+
+  .ico {
+    width: 100px;
+  }
+
+  .nav-link {
+    margin: 0px 20px;
+    font-variant: small-caps;
+    font-size: 20px;
+  }
+
+  /*Filtros*/
+  .filtros {
+    margin-left: 0px;
+  }
+
+  .categorias :first-child {
+    font: 20px bold;
+  }
+
+  /*card*/
+  .tarjeta {
+    display: flexbox;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
+
+  .usuario img {
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .meme {
+    display: block;
+    padding: 10px;
+  }
+
+  .meme img {
+    border-radius: 5px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .botones img {
+    margin: 10px auto;
+    width: 50px;
+    height: 50px;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand">
+    <a class="navbar-brand" href="#"><img src="assets/ico.png" alt="ico" class="ico"></a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Subir MEME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Favoritos</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-auto filtros">
+        <ul class="categorias">
+          <li>Categorias:</li>
+          <li>Advengers</li>
+        </ul>
+        <ul>
+          <li>TOP MEMES</li>
+          <li>Recientes</li>
+          <li>Aleatorios</li>
+          <li>Favoritos</li>
+        </ul>
+
+      </div>
+      <div class="col contenido">
+        <div class="row">
+          <div class="col col-12 col-lg-6">
+            <div class="tarjeta">
+            <div class="row usuario">
+              <img src="assets/user.png" alt="user">
+              <ul>
+                <li>Nombre usuario</li>
+                <li>Fecha publicacion</li>
+              </ul>
+            </div>
+            <div class="row meme">
+              <img src="memes/meme-2.jpg" alt="meme">
+            </div>
+            <div class="row botones">
+              <img src="assets/like.png" alt="like">
+              <img src="assets/dislike.png" alt="dislike">
+              <img src="assets/fav.png" alt="fav">
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6 tarjeta">
+            <div class="row usuario">
+              <img src="assets/user.png" alt="user">
+              <ul>
+                <li>Nombre usuario</li>
+                <li>Fecha publicacion</li>
+              </ul>
+            </div>
+            <div class="row meme">
+              <img src="memes/meme-1.jpg" alt="meme">
+            </div>
+            <div class="row botones">
+              <img src="assets/like.png" alt="like">
+              <img src="assets/dislike.png" alt="dislike">
+              <img src="assets/fav.png" alt="fav">
+            </div>
+          </div>
+          <div class="col col-12 col-lg-6 tarjeta">
+            <div class="row usuario">
+              <img src="assets/user.png" alt="user">
+              <ul>
+                <li>Nombre usuario</li>
+                <li>Fecha publicacion</li>
+              </ul>
+            </div>
+            <div class="row meme">
+              <img src="memes/meme-1.jpg" alt="meme">
+            </div>
+            <div class="row botones">
+              <img src="assets/like.png" alt="like">
+              <img src="assets/dislike.png" alt="dislike">
+              <img src="assets/fav.png" alt="fav">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
