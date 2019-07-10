@@ -4,25 +4,47 @@ import Header from './components/header';
 import Inicio from './sections/inicio';
 import SubirMeme from './sections/subirMeme';
 import Favoritos from './sections/favoritos'
+import {memes} from './memes.json';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       seccion: 1,
-      favoritos: ['no hay'],
-      memes: [{
-        id: 1,
-        user: 'Usuario 1',
-        fecha: '05/07',
-        meme: 'memes/meme-1.jpg'
-      },
-      { id: 2,
-        user: 'Usuario 2',
-        fecha: '06/07',
-        meme: 'memes/meme-2.jpg'
-      }]
+      favoritos: [],
+      memes
     };
+  }
+
+  setFav = (id, fav, meme) => {
+    this.setState({
+      memes: this.state.memes.map(item => item.id !== id ? item : {
+        ...item,
+        fav: fav,
+      })
+    });
+    this.setState ({
+      favoritos: [meme]
+    })
+    console.log(this.state.favoritos);
+  }
+
+  setLike = (id, like) => {
+    this.setState({
+      memes: this.state.memes.map(item => item.id !== id ? item : {
+        ...item,
+        like: like
+      })
+    });
+  }
+
+  setDislike = (id, dislike) => {
+    this.setState({
+      memes: this.state.memes.map(item => item.id !== id ? item : {
+        ...item,
+        dislike: dislike
+      })
+    });
   }
 
   goToInicio = () => {
@@ -45,13 +67,13 @@ class App extends React.Component {
 
   currentSection() {
     if (this.state.seccion === 1) {
-      return <Inicio memes={this.state.memes}/>;
+      return <Inicio memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} />;
     }
     if (this.state.seccion === 2) {
       return <SubirMeme />;
     }
     if (this.state.seccion === 3) {
-      return <Favoritos memes={this.state.memes}/>;
+      return <Favoritos favoritos={this.state.favoritos} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike}/>;
     }
   }
 

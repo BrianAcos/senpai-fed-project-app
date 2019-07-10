@@ -1,0 +1,6 @@
+{
+    "memes" : [ 
+    {"id": 1, "user": "Usuario 1", "fecha": "05/07", "foto": "memes/meme-1.jpg", "fav": false, "dislike": false, "like": false},
+    {"id": 2, "user": "Usuario 2", "fecha": "06/07", "foto": "memes/meme-2.jpg", "fav": false, "dislike": false, "like": false}
+]
+}
