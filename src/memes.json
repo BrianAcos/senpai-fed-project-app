@@ -1,6 +1,19 @@
 {
     "memes" : [ 
-    {"id": 1, "user": "Usuario 1", "fecha": "05/07", "foto": "memes/meme-1.jpg", "fav": false, "dislike": false, "like": false},
-    {"id": 2, "user": "Usuario 2", "fecha": "06/07", "foto": "memes/meme-2.jpg", "fav": false, "dislike": false, "like": false}
+    {"id": 1, "titulo": "titulo 1", "fecha": "2019-07-01", "foto": "memes/uncategorized/meme-1.jpg", "categorias": "uncategorized", "fav": false, "dislike": false, "like": false},
+    {"id": 2, "titulo": "titulo 2", "fecha": "2019-07-02", "foto": "memes/uncategorized/meme-2.jpg", "categorias": "uncategorized", "fav": false, "dislike": false, "like": false},
+    {"id": 3, "titulo": "titulo 3", "fecha": "2019-07-03", "foto": "memes/uncategorized/meme-3.jpg", "categorias": "uncategorized", "fav": false, "dislike": false, "like": false},
+    {"id": 4, "titulo": "titulo 4", "fecha": "2019-07-04", "foto": "memes/uncategorized/meme-4.jpg", "categorias": "uncategorized", "fav": false, "dislike": false, "like": false},
+    {"id": 5, "titulo": "titulo 5", "fecha": "2019-07-05", "foto": "memes/peliculas/meme-1.jpg", "categorias": "peliculas", "fav": false, "dislike": false, "like": false},
+    {"id": 6, "titulo": "titulo 6", "fecha": "2019-07-06", "foto": "memes/gifs/meme-1.gif", "categorias": "gifs", "fav": false, "dislike": false, "like": false},
+    {"id": 7, "titulo": "titulo 7", "fecha": "2019-07-07", "foto": "memes/gifs/meme-2.gif", "categorias": "gifs", "fav": false, "dislike": false, "like": false},
+    {"id": 8, "titulo": "titulo 8", "fecha": "2019-07-08", "foto": "memes/deportes/meme-1.jpg", "categorias": "deportes", "fav": false, "dislike": false, "like": false},
+    {"id": 9, "titulo": "titulo 9", "fecha": "2019-07-09", "foto": "memes/deportes/meme-2.jpg", "categorias": "deportes", "fav": false, "dislike": false, "like": false},
+    {"id": 10, "titulo": "titulo 10", "fecha": "2019-07-10", "foto": "memes/animales/meme-1.jpg", "categorias": "animales", "fav": false, "dislike": false, "like": false},
+    {"id": 11, "titulo": "titulo 11", "fecha": "2019-07-11", "foto": "memes/animales/meme-2.png", "categorias": "animales", "fav": false, "dislike": false, "like": false},
+    {"id": 12, "titulo": "titulo 12", "fecha": "2019-07-12", "foto": "memes/acertijos/meme-1.jpg", "categorias": "acertijos", "fav": false, "dislike": false, "like": false},
+    {"id": 13, "titulo": "titulo 13", "fecha": "2019-07-13", "foto": "memes/acertijos/meme-2.jpg", "categorias": "acertijos", "fav": false, "dislike": false, "like": false},
+    {"id": 14, "titulo": "titulo 14", "fecha": "2019-07-14", "foto": "memes/acertijos/meme-3.jpg", "categorias": "acertijos", "fav": false, "dislike": false, "like": false},
+    {"id": 15, "titulo": "titulo 15", "fecha": "2019-07-15", "foto": "memes/acertijos/meme-4.jpg", "categorias": "acertijos", "fav": false, "dislike": false, "like": false}
 ]
 }

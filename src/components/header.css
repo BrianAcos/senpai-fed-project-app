@@ -30,6 +30,10 @@ nav {
     }
   }
 
+  .nav-link {
+    padding: 0px;
+  }
+
   @media all and (max-width: 400px) {
     .nav-link {
       font-size: 15px;

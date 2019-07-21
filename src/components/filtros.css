@@ -15,8 +15,14 @@
 }
 
 .buttonFiltros {
-  position: fixed;
+  position: absolute;
   margin-left: 140px;
+}
+
+.desactivado {
+  color: gray;
+  pointer-events: none;
+  display: table-row;
 }
 
 .hidden {

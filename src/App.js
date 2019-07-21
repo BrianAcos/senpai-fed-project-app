@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header';
 import Inicio from './sections/inicio';
 import SubirMeme from './sections/subirMeme';
-import Favoritos from './sections/favoritos'
+import Favoritos from './sections/favoritos';
 import {memes} from './memes.json';
 
 class App extends React.Component {
@@ -11,22 +11,49 @@ class App extends React.Component {
     super(props);
     this.state = {
       seccion: 1,
-      favoritos: [],
+      categorias: null,
       memes
     };
+  }
+
+  generadorId() {
+    var idMayor = this.state.memes.sort((a, b) => b.id - a.id)[0];
+      if (idMayor === undefined) {
+        return 1;
+      } else {
+        return idMayor.id + 1;
+      }
+  }
+
+  setCategoria = (categoria) => {
+    this.setState ({
+      categorias: categoria.categorias
+    })
+    console.log(this.state);
+  }
+ 
+  subirMeme = (subirMeme) => {
+    this.setState ({
+      memes: [...this.state.memes, {
+        id: this.generadorId(),
+        titulo: subirMeme.titulo,
+        fecha: subirMeme.fecha,
+        foto: "assets/newMeme.jpg",
+        categorias: subirMeme.categorias,
+        fav: false,
+        dislike: false,
+        like: false,
+      }]
+    })
   }
 
   setFav = (id, fav, meme) => {
     this.setState({
       memes: this.state.memes.map(item => item.id !== id ? item : {
         ...item,
-        fav: fav,
-      })
+        fav: !fav,
+      }),
     });
-    this.setState ({
-      favoritos: [meme]
-    })
-    console.log(this.state.favoritos);
   }
 
   setLike = (id, like) => {
@@ -34,7 +61,7 @@ class App extends React.Component {
       memes: this.state.memes.map(item => item.id !== id ? item : {
         ...item,
         like: like
-      })
+      }),
     });
   }
 
@@ -67,13 +94,13 @@ class App extends React.Component {
 
   currentSection() {
     if (this.state.seccion === 1) {
-      return <Inicio memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} />;
+      return <Inicio goToFavoritos={this.goToFavoritos} categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} setCategoria ={this.setCategoria} />;
     }
     if (this.state.seccion === 2) {
-      return <SubirMeme />;
+      return <SubirMeme subirMeme={this.subirMeme} />;
     }
     if (this.state.seccion === 3) {
-      return <Favoritos favoritos={this.state.favoritos} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike}/>;
+      return <Favoritos categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike}/>;
     }
   }
 

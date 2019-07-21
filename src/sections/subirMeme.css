@@ -7,6 +7,11 @@
     text-shadow: 2px 2px #ff0000;
 }
 
+.newMeme span {
+    background: white;
+    border-radius: 10px;
+}
+
 .newMeme input, .newMeme select {
     width: 151px;
     border-radius: 5px;

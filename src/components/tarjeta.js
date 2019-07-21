@@ -4,7 +4,7 @@ import './tarjeta.css'
 class Tarjeta extends React.Component {
 
   changeFav = () => {
-    this.props.setFav(this.props.meme.id, !this.props.meme.fav, this.props.meme);
+    this.props.setFav(this.props.meme.id, this.props.meme.fav, this.props.meme);
     console.log(this.props.meme.fav);
   }
   
@@ -25,7 +25,7 @@ class Tarjeta extends React.Component {
           <div className="row usuario">
             <img src="assets/user.png" alt="user" />
             <ul>
-              <li>{this.props.meme.user}</li>
+              <li>{this.props.meme.titulo}</li>
               <li>{this.props.meme.fecha}</li>
             </ul>
           </div>
