@@ -100,7 +100,7 @@ class App extends React.Component {
       return <SubirMeme subirMeme={this.subirMeme} />;
     }
     if (this.state.seccion === 3) {
-      return <Favoritos categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike}/>;
+      return <Favoritos categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} setCategoria ={this.setCategoria} />;
     }
   }
 
