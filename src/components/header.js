@@ -16,6 +16,9 @@ class Header extends React.Component {
             <li className="nav-item">
               <a className="nav-link" href="#Favoritos" onClick={this.props.goToFavoritos}>Favoritos</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#Favoritos" onClick={this.props.goToFavoritos}>HOLA</a>
+            </li>
           </ul>
       </nav>
     );
