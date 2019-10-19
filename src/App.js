@@ -4,36 +4,51 @@ import Header from './components/header';
 import Inicio from './sections/inicio';
 import SubirMeme from './sections/subirMeme';
 import Favoritos from './sections/favoritos';
-import {memes} from './memes.json';
+import { memes } from './memes.json';
+import request from 'superagent';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      prueba: null,
       seccion: 1,
       categorias: null,
       memes
     };
   }
 
+  componentWillMount() {
+    request
+      .get('http://localhost:3000/memes')
+      .end((err, res) => {
+        const memes = JSON.stringify(res.text);
+        this.setState({
+          prueba: memes
+        
+        });
+        console.log((this.state.prueba).idmeme);
+      });
+  }
+
   generadorId() {
     var idMayor = this.state.memes.sort((a, b) => b.id - a.id)[0];
-      if (idMayor === undefined) {
-        return 1;
-      } else {
-        return idMayor.id + 1;
-      }
+    if (idMayor === undefined) {
+      return 1;
+    } else {
+      return idMayor.id + 1;
+    }
   }
 
   setCategoria = (categoria) => {
-    this.setState ({
+    this.setState({
       categorias: categoria.categorias
     })
     console.log(this.state);
   }
- 
+
   subirMeme = (subirMeme) => {
-    this.setState ({
+    this.setState({
       memes: [...this.state.memes, {
         id: this.generadorId(),
         titulo: subirMeme.titulo,
@@ -94,23 +109,28 @@ class App extends React.Component {
 
   currentSection() {
     if (this.state.seccion === 1) {
-      return <Inicio goToFavoritos={this.goToFavoritos} categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} setCategoria ={this.setCategoria} />;
+      return <Inicio goToFavoritos={this.goToFavoritos} categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} setCategoria={this.setCategoria} />;
     }
     if (this.state.seccion === 2) {
       return <SubirMeme subirMeme={this.subirMeme} />;
     }
     if (this.state.seccion === 3) {
-      return <Favoritos categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} setCategoria ={this.setCategoria} />;
+      return <Favoritos categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} setCategoria={this.setCategoria} />;
     }
   }
 
   render() {
+    // var titulos = this.state.prueba.forEach((meme) => {
+    //   return <li>{meme}</li>
+    // });
     return (
       <div>
         <Header
           goToInicio={this.goToInicio}
           goToSubirMeme={this.goToSubirMeme}
           goToFavoritos={this.goToFavoritos} />
+          {/* <div><ul>{titulos.titulo}</ul></div> */}
+          <div><ul>{this.state.prueba}</ul></div>
         {this.currentSection()}
       </div >
     );
