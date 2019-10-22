@@ -2,6 +2,7 @@
 const mysql = require('mysql');
 const express = require('express')
 const app = express();
+const cors = require('cors');
 
 //establesco parametros de coneccion con mi base de datos
 const connection = mysql.createConnection({
@@ -20,11 +21,15 @@ connection.connect(function (err) {
     }
 });
 
+//cors
+app.use( cors({ origin: "localhost:3001", credentials: true  }) );
+
 //obtengo todas las tareas
 app.get('/memes', function (req, res) {
+    // res.writeHead(200, {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true' });
     connection.query('SELECT * FROM memes', (err, rows, fields) => {
         if (!err) {
-            res.send(JSON.stringify(rows));
+            res.json(rows);
         } else {
             console.log(err);
         }

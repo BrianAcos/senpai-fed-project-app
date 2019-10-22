@@ -18,16 +18,14 @@ class App extends React.Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     request
       .get('http://localhost:3000/memes')
       .end((err, res) => {
-        const memes = JSON.stringify(res.text);
+        const memes = JSON.parse(res.text);
         this.setState({
           prueba: memes
-        
         });
-        console.log((this.state.prueba).idmeme);
       });
   }
 
@@ -120,17 +118,13 @@ class App extends React.Component {
   }
 
   render() {
-    // var titulos = this.state.prueba.forEach((meme) => {
-    //   return <li>{meme}</li>
-    // });
     return (
       <div>
         <Header
           goToInicio={this.goToInicio}
           goToSubirMeme={this.goToSubirMeme}
           goToFavoritos={this.goToFavoritos} />
-          {/* <div><ul>{titulos.titulo}</ul></div> */}
-          <div><ul>{this.state.prueba}</ul></div>
+        <div><ul>{this.state.prueba && this.state.prueba.length && this.state.prueba[0].idmeme}</ul></div>
         {this.currentSection()}
       </div >
     );
