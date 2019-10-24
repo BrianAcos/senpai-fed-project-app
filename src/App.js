@@ -4,27 +4,25 @@ import Header from './components/header';
 import Inicio from './sections/inicio';
 import SubirMeme from './sections/subirMeme';
 import Favoritos from './sections/favoritos';
-import { memes } from './memes.json';
 import request from 'superagent';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      prueba: null,
       seccion: 1,
       categorias: null,
-      memes
+      memes: [],
     };
   }
 
   UNSAFE_componentWillMount() {
     request
-      .get('http://localhost:3000/memes')
+      .get('http://localhost:3001/memes')
       .end((err, res) => {
-        const memes = JSON.parse(res.text);
+        const lista = JSON.parse(res.text);
         this.setState({
-          prueba: memes
+          memes: lista
         });
       });
   }
@@ -124,7 +122,6 @@ class App extends React.Component {
           goToInicio={this.goToInicio}
           goToSubirMeme={this.goToSubirMeme}
           goToFavoritos={this.goToFavoritos} />
-        <div><ul>{this.state.prueba && this.state.prueba.length && this.state.prueba[0].idmeme}</ul></div>
         {this.currentSection()}
       </div >
     );

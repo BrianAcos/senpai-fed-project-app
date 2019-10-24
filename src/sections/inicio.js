@@ -4,8 +4,7 @@ import Filtros from '../components/filtros';
 
 class Inicio extends React.Component {
     render() {
-        var memesFiltrados = this.props.memes
-        .filter(item => this.props.categorias === null || this.props.categorias === 'Categorias' || this.props.categorias === item.categorias)
+        var memesFiltrados = this.props.memes.filter(item => this.props.categorias === null || this.props.categorias === 'Categorias' || this.props.categorias === item.categoria)
 
         return (
             <div className="container-fluid">

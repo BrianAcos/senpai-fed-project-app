@@ -8,7 +8,7 @@ const cors = require('cors');
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'propiedaddeluis',
+    password: 'password',
     database: 'memeland',
 });
 
@@ -22,7 +22,7 @@ connection.connect(function (err) {
 });
 
 //cors
-app.use( cors({ origin: "localhost:3001", credentials: true  }) );
+app.use( cors({ origin: "localhost:3000", credentials: true  }) );
 
 //obtengo todas las tareas
 app.get('/memes', function (req, res) {
@@ -37,6 +37,6 @@ app.get('/memes', function (req, res) {
 });
 
 //Levanto la aplicación
-app.listen(3000, function () {
-    console.log("App corriendo en el puerto 3000");
+app.listen(3001, function () {
+    console.log("App corriendo en el puerto 3001");
 });
