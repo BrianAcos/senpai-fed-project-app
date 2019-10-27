@@ -44,6 +44,8 @@
 
   .usuario ul {
     transition: all 1s ease-out;
+    word-break: break-all;
+    width: 80%;
   }
 
   @media all and (max-width: 400px) {

@@ -25,7 +25,7 @@ class Tarjeta extends React.Component {
           <div className="row usuario">
             <img src="assets/user.png" alt="user" />
             <ul>
-              <li>{this.props.meme.titulo}</li>
+              <li><p>{this.props.meme.titulo}</p></li>
               <li>{this.props.meme.fecha}</li>
             </ul>
           </div>

@@ -34,7 +34,6 @@ class SubirMeme extends React.Component {
     }
 
     mandarCambios = (e) => {
-        e.preventDefault();
         this.props.subirMeme ({
             titulo: this.state.titulo,
             foto: this.state.foto,
@@ -44,7 +43,6 @@ class SubirMeme extends React.Component {
         this.setState({
             titulo: ''
         });
-        alert('Tu meme se subió correctamente')
         console.log(this.state);
     }
 
@@ -53,7 +51,7 @@ class SubirMeme extends React.Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col mr-auto ml-auto">
-                        <form onSubmit={this.handleSubmit} className="newMeme" action="url.php" method="post">
+                        <form onSubmit={this.handleSubmit} className="newMeme" action="http://localhost:3001/agregar" method="post" enctype="multipart/form-data">
                             <h1>Subí un MEME:</h1>
                             <label htmlFor="titulo"><span>Titulo:</span></label>
                             <input name="titulo" onChange={this.capturarTitulo} required type="text" id="titulo" placeholder="Título para el meme"></input>
