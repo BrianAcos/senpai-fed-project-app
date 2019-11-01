@@ -7,17 +7,7 @@ class Tarjeta extends React.Component {
     this.props.setFav(this.props.meme.id, this.props.meme.fav, this.props.meme);
     console.log(this.props.meme.fav);
   }
-  
-  changeDislike = () => {
-    this.props.setDislike(this.props.meme.id, !this.props.meme.dislike);
-    console.log(this.props.meme.dislike);
-  }
-  
-  changeLike = () => {
-    this.props.setLike(this.props.meme.id, !this.props.meme.like);
-      console.log(this.props.meme.like);
-  }
-  
+
   render() {
     return (
       <div className="col col-12 col-md-6">
@@ -33,8 +23,11 @@ class Tarjeta extends React.Component {
             <img src={this.props.meme.foto} alt="meme" />
           </div>
           <div className="row botones">
-            <a href="#???" onClick={this.changeLike}><img src={(this.props.meme.like ? "assets/like.png" : "assets/no-like.png")} alt="like" /></a>
-            <a href="#???" onClick={this.changeDislike}><img src={(this.props.meme.dislike ? "assets/dislike.png" : "assets/no-dislike.png")} alt="dislike" /></a>
+            <form id="puntuacion">
+              <p className="puntuacion">
+                <input id="radio1" type="radio" name="estrellas" value="5"></input><label for="radio1">★</label><input id="radio2" type="radio" name="estrellas" value="4"></input><label for="radio2">★</label><input id="radio3" type="radio" name="estrellas" value="3"></input><label for="radio3">★</label><input id="radio4" type="radio" name="estrellas" value="2"></input><label for="radio4">★</label><input id="radio5" type="radio" name="estrellas" value="1"></input><label for="radio5">★</label>
+              </p>
+            </form>
             <a href="#???" onClick={this.changeFav}><img src={(this.props.meme.fav ? "assets/fav.png" : "assets/no-fav.png")} alt="fav" /></a>
             <a href="#???"><img src="assets/compartir.png" alt="share" /></a>
           </div>

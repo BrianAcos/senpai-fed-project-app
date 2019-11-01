@@ -65,3 +65,33 @@
       transition: all 1s ease-out;
     }
   }
+
+  #puntuacion {
+    margin: 5px;
+  }
+  
+  .puntuacion input[type="radio"] {
+    display: none;
+  }
+  
+  .puntuacion {
+    font-size: 30px;
+    padding: 0px 10px;
+  }
+
+  .puntuacion label {
+    color: grey;
+  }
+  
+  .puntuacion {
+    direction: rtl;
+  }
+  
+  .puntuacion label:hover,
+  .puntuacion label:hover ~ label {
+    color: orange;
+  }
+  
+  .puntuacion input[type="radio"]:checked ~ label {
+    color: orange;
+  }

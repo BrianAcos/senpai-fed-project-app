@@ -5,6 +5,9 @@ import Inicio from './sections/inicio';
 import SubirMeme from './sections/subirMeme';
 import Favoritos from './sections/favoritos';
 import request from 'superagent';
+import Registro from './components/registro';
+import Login from './components/login';
+import Contacto from './components/contacto';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +21,7 @@ class App extends React.Component {
 
   UNSAFE_componentWillMount() {
     request
-      .get('http://localhost:3001/memes')
+      .get('http://localhost:3001/api/memes')
       .end((err, res) => {
         const lista = JSON.parse(res.text);
         this.setState({
@@ -103,6 +106,7 @@ class App extends React.Component {
     });
   }
 
+
   currentSection() {
     if (this.state.seccion === 1) {
       return <Inicio goToFavoritos={this.goToFavoritos} categorias={this.state.categorias} memes={this.state.memes} setFav={this.setFav} setLike={this.setLike} setDislike={this.setDislike} setCategoria={this.setCategoria} />;
@@ -123,6 +127,9 @@ class App extends React.Component {
           goToSubirMeme={this.goToSubirMeme}
           goToFavoritos={this.goToFavoritos} />
         {this.currentSection()}
+        <Contacto />
+        <Registro />
+        <Login />
       </div >
     );
   }

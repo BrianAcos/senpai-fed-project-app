@@ -51,7 +51,7 @@ class SubirMeme extends React.Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col mr-auto ml-auto">
-                        <form onSubmit={this.handleSubmit} className="newMeme" action="http://localhost:3001/agregar" method="post" enctype="multipart/form-data">
+                        <form onSubmit={this.handleSubmit} className="newMeme" action="http://localhost:3001/api/memes" method="post" enctype="multipart/form-data">
                             <h1>Subí un MEME:</h1>
                             <label htmlFor="titulo"><span>Titulo:</span></label>
                             <input name="titulo" onChange={this.capturarTitulo} required type="text" id="titulo" placeholder="Título para el meme"></input>
@@ -69,9 +69,6 @@ class SubirMeme extends React.Component {
                                 <option value="peliculas">Peliculas</option>
                                 <option value="uncategorized">Uncategorized</option>
                             </select>
-                            <br></br>
-                            <label htmlFor="edad"><span>Fecha actual</span></label>
-                            <input name="edad" onChange={this.capturarFecha} required type="date" id="edad"></input>
                             <br></br>
                             <button className="subir" type="submit" onClick={this.mandarCambios} >Subir Meme</button>
                         </form>
